@@ -1,0 +1,42 @@
+$prim-color: green;
+$marginLeft: 50px;
+$side: left;
+$index: 1;
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+@mixin right($right: 40px) {
+  margin-right: $right;
+}
+.box {
+  .box-content {
+    @include right();
+    color: $prim-color;
+    background-color: red;
+  }
+  .box-side {
+    @extend .box-content;
+    @include flex-row;
+    @include right(30px);
+    margin-#{$side}: 30px;
+    margin-left: calc(100vh - $marginLeft);
+  }
+}
+@for $i from 1 through 10 {
+  .margin-left-#{$i} {
+    margin-left: #{$i}px;
+  }
+}
+@while $index < 10 {
+  .margin-right-#{$index} {
+    margin-right: #{$index}px;
+  }
+  $index: $index + 1;
+}
+@function doubleValue($value) {
+  @return $value * 2;
+}
+.box-side {
+  border: doubleValue(10px) solid black;
+}
