@@ -1,0 +1,25 @@
+// sass加法
+$width1: 100px;
+$width2: 200px;
+$num: 12;
+.main {
+  width: $width1 + $width2;
+}
+.main::after {
+  content: "hello " + world;
+  font-family: sans- + "serif";
+}
+
+.main::before {
+  content: "这是啥" + #{$num + 1};
+  width: $width2;
+  height: 30px / 1px;
+}
+@mixin border-radius($radius: 5px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+.content {
+  @include border-radius(10px);
+}

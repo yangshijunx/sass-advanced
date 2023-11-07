@@ -1,0 +1,1 @@
+npx sass --style compressed index2.scss style2.css

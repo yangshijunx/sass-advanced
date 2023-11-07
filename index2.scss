@@ -1,0 +1,15 @@
+$width: 120px;
+$width2: 40px;
+.main {
+  .content {
+    width: $width;
+    $width: 130px;
+  }
+  $width: 140px;
+  .sidebar {
+    width: $width;
+    &::after {
+      content: "测试";
+    }
+  }
+}
